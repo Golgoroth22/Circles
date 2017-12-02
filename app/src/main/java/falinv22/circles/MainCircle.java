@@ -27,8 +27,8 @@ public class MainCircle {
     }
 
     public void moveMainCircleWhenTouchAt(int x1, int y1) {
-        int dx = (x - x1) * MAIN_SPEED / GameManager.getWidth();
-        int dy = (y - y1) * MAIN_SPEED / GameManager.getHeight();
+        int dx = (x1 - x) * MAIN_SPEED / GameManager.getWidth();
+        int dy = (y1 - y) * MAIN_SPEED / GameManager.getHeight();
         x += dx;
         y += dy;
     }
