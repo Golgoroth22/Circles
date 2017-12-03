@@ -48,7 +48,7 @@ public class CanvasView extends View implements ICanvasView {
     }
 
     @Override
-    public void drowCircle(MainCircle circle) {
+    public void drowCircle(SimpleCircle circle) {
         canvas.drawCircle(circle.getX(), circle.getY(), circle.getRadius(), paint);
     }
 
