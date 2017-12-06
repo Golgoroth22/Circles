@@ -15,8 +15,8 @@ public class GameManager {
         this.canvasView = canvasView;
         width = w;
         height = h;
-        initEnemyCircles();
         initMainCircle();
+        initEnemyCircles();
     }
 
     public static int getWidth() {
@@ -37,6 +37,13 @@ public class GameManager {
             EnemyCircle circle;
             circle = EnemyCircle.getEnemyCircle();
             enemyCircles.add(circle);
+        }
+        calculateAndSetCirclesColor();
+    }
+
+    private void calculateAndSetCirclesColor() {
+        for (EnemyCircle circle : enemyCircles) {
+            circle.setColorForEnemyOrFoodCirle(mainCircle);
         }
     }
 
