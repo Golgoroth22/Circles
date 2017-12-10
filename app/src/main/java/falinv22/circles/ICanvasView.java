@@ -1,7 +1,7 @@
 package falinv22.circles;
 
 public interface ICanvasView {
-    void drowCircle(SimpleCircle circle);
+    void drawCircle(SimpleCircle circle);
 
     void redraw();
 }
