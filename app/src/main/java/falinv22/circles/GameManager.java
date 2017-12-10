@@ -51,9 +51,9 @@ public class GameManager {
     }
 
     public void onDrow() {
-        canvasView.drowCircle(mainCircle);
+        canvasView.drawCircle(mainCircle);
         for (EnemyCircle e : enemyCircles) {
-            canvasView.drowCircle(e);
+            canvasView.drawCircle(e);
         }
     }
 
@@ -64,10 +64,25 @@ public class GameManager {
     }
 
     private void checkCollisions() {
+        SimpleCircle circleForDel = null;
         for (EnemyCircle circle : enemyCircles) {
             if (mainCircle.isIntersect(circle)) {
-                gameOver();
+                if (circle.isSmallerThen(mainCircle)) {
+                    mainCircle.grow(circle);
+                    circleForDel = circle;
+                    calculateAndSetCirclesColor();
+                    break;
+                } else {
+                    gameOver();
+                    return;
+                }
             }
+        }
+        if (circleForDel != null) {
+            enemyCircles.remove(circleForDel);
+        }
+        if (enemyCircles.isEmpty()) {
+            gameOver();
         }
     }
 
